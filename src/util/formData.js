@@ -32,6 +32,10 @@ function appendToFormData(formData, key, value) {
     if (value === null) {
         return formData.append(key, '');
     }
+
+    if (value === undefined){
+        return;
+    }
     
     if (typeof value !== 'object') {
         return formData.append(key, value);
