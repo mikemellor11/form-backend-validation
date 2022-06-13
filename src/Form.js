@@ -1,5 +1,6 @@
 import Errors from './Errors';
 import { guardAgainstReservedFieldName, isArray, isFile, merge, objectToFormData } from './util';
+import axios from "axios";
 
 class Form {
     /**
@@ -65,7 +66,7 @@ class Form {
 
         const windowAxios = typeof window === 'undefined' ? false : window.axios
 
-        this.__http = options.http || windowAxios || require('axios');
+        this.__http = options.http || windowAxios || axios;
 
         if (!this.__http) {
             throw new Error(
